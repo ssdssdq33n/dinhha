@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐINH HÀ</title>
+    <style>
+   *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   }
+   body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+   }
+   .box{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+   }
+   @keyframes animate {
+    0%{
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100%{
+        transform: perspective(1000px) rotateY(360deg);
+    }
+   }
+   .box span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(400px);
+    --webkit-box-reflect: below 0px linear-gradient(transparent,#0004)
+   }
+
+   .box span img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+   }
+   .chu{
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:100px;
+    cursor: pointer;
+   }
+   .pink{
+    color: palevioletred;
+   }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="chu">click</div>
+        <span style="--i:1;"><img src="./imgs/img_1.jpg" alt=""></span>
+        <span style="--i:2;"><img src="./imgs/img_2.jpg" alt=""></span>
+        <span style="--i:3;"><img src="./imgs/img_3.jpg" alt=""></span>
+        <span style="--i:4;"><img src="./imgs/img_4.jpg" alt=""></span>
+        <span style="--i:5;"><img src="./imgs/img_5.jpg" alt=""></span>
+        <span style="--i:6;"><img src="./imgs/img_6.jpg" alt=""></span>
+        <span style="--i:7;"><img src="./imgs/img_7.jpg" alt=""></span>
+        <span style="--i:8;"><img src="./imgs/img_8.jpg" alt=""></span>
+    </div>
+     <audio src="./mp3/ve-tinh-ft-hoang-ton-prod-by-kewtiie-official-lyric-video.mp3" class="audio" type="audio/mp3"></audio>
+    <script>
+        const a=document.querySelector('.chu')
+        const b=document.querySelector('.audio')
+        setInterval(function(){
+            a.classList.toggle('pink')
+        },1000)
+        a.onclick=function(){
+           b.play()
+        }
+    </script>
+</body>
+</html>
